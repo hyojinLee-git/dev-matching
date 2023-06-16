@@ -1,3 +1,5 @@
+import { BASEURL } from "../models/constant.js";
+
 class Header {
     constructor($body) {
         this.$body = $body;
@@ -31,6 +33,22 @@ class Header {
             "menu_signup",
             "SIGNUP"
         );
+
+        homeMenu.addEventListener("click", () => {
+            window.history.pushState("", "", `${BASEURL}/web`);
+            const urlChange = new CustomEvent("urlchange", {
+                detail: { href: "/web/" },
+            });
+            document.dispatchEvent(urlChange);
+        });
+
+        signupMenu.addEventListener("click", () => {
+            window.history.pushState("", "", `${BASEURL}/web/signup`);
+            const urlChange = new CustomEvent("urlchange", {
+                detail: { href: "/web/signup" },
+            });
+            document.dispatchEvent(urlChange);
+        });
 
         $header.appendChild(homeMenu);
         $header.appendChild(signupMenu);
