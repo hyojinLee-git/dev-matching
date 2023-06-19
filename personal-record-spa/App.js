@@ -21,6 +21,8 @@ class App {
         const $homePage = new HomePage($main);
         const $signupPage = new SignupPage($main);
 
+        $homePage.render();
+
         document.addEventListener("urlchange", (e) => {
             let pathname = e.detail.href;
 
@@ -31,6 +33,7 @@ class App {
                 case "/web/signup":
                     $signupPage.render();
                     break;
+                default:
             }
         });
     }
