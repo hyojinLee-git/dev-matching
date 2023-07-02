@@ -1,4 +1,5 @@
 import Header from "./src/components/Header.js";
+import { setPeronalInfo } from "./src/components/Storage.js";
 import HomePage from "./src/page/HomePage.js";
 import SignupPage from "./src/page/SignupPage.js";
 
@@ -10,7 +11,7 @@ class App {
     }
 
     // 렌더링 함수
-    render() {
+    async render() {
         const $header = new Header(this.$body);
         $header.render();
 
@@ -36,6 +37,8 @@ class App {
                 default:
             }
         });
+
+        await setPeronalInfo();
     }
 }
 
