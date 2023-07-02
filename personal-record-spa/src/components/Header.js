@@ -35,7 +35,7 @@ class Header {
         );
 
         homeMenu.addEventListener("click", () => {
-            window.history.pushState("", "", `${BASEURL}/web`);
+            window.history.pushState("", "", `${BASEURL}/web/`);
             const urlChange = new CustomEvent("urlchange", {
                 detail: { href: "/web/" },
             });
