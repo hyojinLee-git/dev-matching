@@ -1,4 +1,5 @@
 import { cardDiv, cardPlane } from "./Card.js";
+import { setCardStatus } from "./Storage.js";
 
 class CardView {
     constructor($main) {
@@ -9,6 +10,8 @@ class CardView {
         const containerDiv = document.createElement("div");
         containerDiv.setAttribute("id", "cards_container");
         this.$main.appendChild(containerDiv);
+
+        setCardStatus();
 
         let personalInfo = [];
         const data = localStorage.getItem("personalInfo");
