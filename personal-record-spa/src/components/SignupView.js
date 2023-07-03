@@ -14,6 +14,36 @@ class SignupView {
         form.setAttribute("id", "grepp_form");
         containerDiv.appendChild(form);
 
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const personalInfo = JSON.parse(
+                localStorage.getItem("personalInfo")
+            );
+
+            // let idx=personalInfo.length;
+            let name = e.target.name.value;
+            let email = e.target.email.value;
+            let nickname = e.target.nickname.value;
+            let role = e.target.role.value;
+            let mbti = e.target.mbti.value;
+
+            const submitInfo = {
+                name,
+                email,
+                nickname,
+                role,
+                mbti,
+            };
+
+            localStorage.setItem(
+                "personalInfo",
+                JSON.stringify([...personalInfo, submitInfo])
+            );
+
+            alert("등록");
+        });
+
         input("text", "name", "이름");
         input("email", "email", "이메일");
         input("text", "nickname", "닉네임");
