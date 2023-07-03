@@ -69,8 +69,8 @@ class SignupView {
             "ISTP",
         ];
 
-        select("role", roleValList, roleTxtList);
-        select("mbti", mbtiValList, mbtiTxtList);
+        select("role", roleValList, roleTxtList, "직군");
+        select("mbti", mbtiValList, mbtiTxtList, "MBTI");
 
         button("submit", "등록");
     }

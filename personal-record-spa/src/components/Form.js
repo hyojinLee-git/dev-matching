@@ -7,11 +7,16 @@ export const input = (type, id, text) => {
     input.setAttribute("id", id);
     input.value = text;
 
+    const label = document.createElement("label");
+    label.setAttribute("for", id);
+    label.innerHTML = text;
+
+    span.appendChild(label);
     span.appendChild(input);
     document.querySelector("#grepp_form").appendChild(span);
 };
 
-export const select = (id, optValList, optTxtList) => {
+export const select = (id, optValList, optTxtList, text) => {
     const span = document.createElement("span");
     span.setAttribute("class", "form_elem");
 
@@ -25,6 +30,11 @@ export const select = (id, optValList, optTxtList) => {
         select.appendChild(option);
     }
 
+    const label = document.createElement("label");
+    label.setAttribute("for", id);
+    label.innerHTML = text;
+
+    span.appendChild(label);
     span.appendChild(select);
     document.querySelector("#grepp_form").appendChild(span);
 };
